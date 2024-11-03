@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "server ⚡️",
+      "type": "npm",
+      "script": "dev",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "database 📊",
+      "type": "shell",
+      "command": "prisma studio",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}

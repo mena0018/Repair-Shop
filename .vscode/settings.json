@@ -1,0 +1,11 @@
+{
+  //* EDITOR
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"], // Runs Prettier, then ESLint
+
+  //* EXTENSIONS
+  "conventionalCommits.promptBody": false,
+  "conventionalCommits.promptFooter": false,
+  "conventionalCommits.promptCI": false
+}

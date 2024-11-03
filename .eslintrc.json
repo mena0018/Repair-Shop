@@ -1,0 +1,74 @@
+{
+  "root": true,
+  "plugins": ["prettier", "@typescript-eslint", "simple-import-sort"],
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/jsx-key": "off",
+    "react/no-unescaped-entities": "off",
+    "tailwindcss/no-custom-classname": "off",
+
+    "@next/next/no-img-element": "off",
+    "@next/next/no-html-link-for-pages": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-require-imports": "off",
+
+    "no-var": "error",
+    "prefer-const": "warn",
+    "prettier/prettier": ["warn"],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          [
+            // (s)css first
+            "^.+\\.s?css$",
+            // `react` related packages come first.
+            "^react",
+            "^@?\\w",
+            // `next` related packages come after
+            "^next",
+            // Internal packages.
+            "^@/",
+            // Side effect imports.
+            "^\\u0000",
+            // Parent imports. Put `..` last.
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            // Other relative imports. Put same-folder imports and `.` last.
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ]
+        ]
+      }
+    ]
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
