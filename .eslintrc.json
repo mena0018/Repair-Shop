@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "@typescript-eslint", "simple-import-sort"],
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/jsx-key": "off",
+    "react/no-unescaped-entities": "off",
+    "tailwindcss/no-custom-classname": "off",
+
+    "@next/next/no-img-element": "off",
+    "@next/next/no-html-link-for-pages": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-require-imports": "off",
+
+    "no-var": "error",
+    "prefer-const": "warn",
+    "prettier/prettier": ["warn"],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": "warn"
+  }
+}
