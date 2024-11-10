@@ -13,7 +13,7 @@ export const metadata: Metadata = baseMetadata;
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
-    <html suppressHydrationWarning lang="en" className="h-full">
+    <html suppressHydrationWarning lang='en' className='h-full'>
       <body suppressHydrationWarning className={cn(fontSans.className)}>
         <Providers>{children}</Providers>
       </body>

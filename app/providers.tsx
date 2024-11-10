@@ -9,7 +9,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <ThemeProvider>
       <ThemeToggle />
-      <Toaster richColors closeButton position="top-right" />
+      <Toaster richColors closeButton position='top-right' />
       {children}
     </ThemeProvider>
   );

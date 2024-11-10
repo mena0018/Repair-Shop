@@ -14,9 +14,7 @@
   "formatter": {
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 100,
-    "attributePosition": "auto"
+    "lineWidth": 100
   },
   "linter": {
     "rules": {
@@ -45,7 +43,7 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "jsxQuoteStyle": "double",
+      "jsxQuoteStyle": "single",
       "trailingCommas": "all"
     }
   },
