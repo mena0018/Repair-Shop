@@ -1,7 +1,6 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode", // Prettier
-    "dbaeumer.vscode-eslint", // ESLint
+    "biomejs.biome", // Biome
     "bradlc.vscode-tailwindcss", // Tailwind intellissense
     "vivaxy.vscode-conventional-commits" // Conventional Commits
   ]

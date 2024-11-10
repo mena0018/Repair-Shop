@@ -1,8 +1,12 @@
 {
   //* EDITOR
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"], // Runs Prettier, then ESLint
+  "editor.defaultFormatter": "biomejs.biome",
+  
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
 
   //* TYPESCRIPT
   "typescript.enablePromptUseWorkspaceTsdk": true,
