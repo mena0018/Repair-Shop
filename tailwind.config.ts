@@ -56,6 +56,8 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        appear: 'appear 1s ease-in-out',
+        slide: 'slide 750ms ease-in-out',
       },
       keyframes: {
         'accordion-down': {
@@ -65,6 +67,14 @@ const config = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
+        },
+        appear: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        slide: {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0%)' },
         },
       },
     },
