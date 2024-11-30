@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 export const Header = () => {
   return (
-    <header className='animate-slide bg-background h-12 p-2 border-b sticky top-0 z-20'>
-      <div className='w-full h-8 flex items-center justify-between'>
+    <header className='sticky top-0 z-20 h-12 animate-slide border-b bg-background p-2'>
+      <div className='flex h-8 w-full items-center justify-between'>
         <div className='flex items-center gap-2'>
           <NavButton label='Home' href='/' icon={HomeIcon} />
-          <Link href='/home' title='Home' className='flex justify-center items-center gap-2 ml-0'>
-            <h1 className='hidden sm:block text-xl font-bold m-0 mt-1'>Computer Repair Shop</h1>
+          <Link href='/home' title='Home' className='ml-0 flex items-center justify-center gap-2'>
+            <h1 className='m-0 mt-1 hidden font-bold text-xl sm:block'>Computer Repair Shop</h1>
           </Link>
         </div>
 

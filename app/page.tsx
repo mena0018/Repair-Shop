@@ -7,7 +7,7 @@ export default function Page() {
       <Link href='/home'>
         <Card className='mx-auto w-4/5 sm:max-w-96'>
           <CardHeader>
-            <CardTitle className='text-4xl font-bold'>Dan's Computer Repair Shop</CardTitle>
+            <CardTitle className='font-bold text-4xl'>Dan's Computer Repair Shop</CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col gap-6 text-lg'>
             <address className='flex flex-col'>
