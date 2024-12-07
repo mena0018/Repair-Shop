@@ -1,9 +1,10 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 
 export default function Page() {
   return (
-    <main className='mx-auto flex h-dvh max-w-5xl flex-col justify-center text-center'>
+    <main className='mx-auto flex h-dvh max-w-5xl flex-col justify-center gap-4 text-center'>
       <Link href='/home'>
         <Card className='mx-auto w-4/5 sm:max-w-96'>
           <CardHeader>
@@ -19,6 +20,10 @@ export default function Page() {
           </CardContent>
         </Card>
       </Link>
+
+      <Button asChild className='mx-auto w-fit' variant='secondary'>
+        <Link href='/login'>View more</Link>
+      </Button>
     </main>
   );
 }
