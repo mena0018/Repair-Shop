@@ -25,7 +25,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
         <button
           onClick={() => reset()}
-          className='mt-6 inline-block rounded bg-indigo-800 px-5 py-3 font-medium text-sm hover:bg-indigo-900 focus:outline-none focus:ring'
+          className='mt-6 inline-block rounded bg-indigo-800 px-5 py-3 font-medium text-sm text-white hover:bg-indigo-900 focus:outline-none focus:ring'
         >
           Try Again
         </button>

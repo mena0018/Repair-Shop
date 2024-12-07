@@ -1,7 +1,6 @@
+import { Button } from '@/components/ui/button';
 import { LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-
-import { Button } from '@/components/ui/button';
 
 type NavButtonProps = {
   icon: LucideIcon;
