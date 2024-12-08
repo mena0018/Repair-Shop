@@ -1,20 +1,21 @@
-import { generateUserList } from '@/lib/helper';
+import { generateCustomers } from '@/prisma/data/customers';
+import { generateTickets } from '@/prisma/data/tickets';
 import prisma from '@/prisma/singleton';
 
 const seed = async () => {
-  const users = generateUserList();
+  const customers = generateCustomers();
+  const tickets = generateTickets();
 
-  for (const user of users) {
-    await prisma.user.create({ data: user });
-  }
+  await prisma.customer.createMany({ data: customers, skipDuplicates: true });
+  await prisma.ticket.createMany({ data: tickets, skipDuplicates: true });
 };
 
 seed()
-  .then(async () => {
-    await prisma.$disconnect();
+  .then(() => {
+    prisma.$disconnect();
+    console.warn('✅ Seeding completed successfully!');
   })
-  .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
+  .catch((e) => {
+    console.error('❌ Error during seeding:', e);
+    prisma.$disconnect().finally(() => process.exit(1));
   });
