@@ -9,10 +9,9 @@
     "lint:fix": "pnpm biome lint --write .",
     "format:fix": "pnpm biome format --write .",
     "format": "pnpm run lint:fix && pnpm run format:fix",
-    "seed": "tsx ./prisma/seed.ts",
     "prepare": "husky",
     "postinstall": "prisma generate",
-    "vercel-build": "next build"
+    "seed": "tsx ./prisma/seed.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.5.0",
