@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 
-import { Providers } from '@/app/providers';
+import { Providers } from '@/components/providers';
 import { baseMetadata } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
 
