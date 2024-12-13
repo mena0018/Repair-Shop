@@ -8,10 +8,10 @@
 6. [X] Provide a logout option
 7. [X] Require users to login at least once per week
 8. [X] Provide a way to remove employee access asap if needed
-9. [ ] Customers have an ID, full address, phone, email & notes
-10. [ ] Tickets have an ID, title, notes, created & updated dates
-11. [ ] Tickets are either OPEN or COMPLETED
-12. [ ] Tickets are assigned to specific employees
+9. [X] Customers have an ID, full address, phone, email & notes
+10. [X] Tickets have an ID, title, notes, created & updated dates
+11. [X] Tickets are either OPEN or COMPLETED
+12. [X] Tickets are assigned to specific employees
 13. [X] Users can have Employee, Manager, or Admin permissions
 14. [ ] All users can create and view tickets
 15. [ ] All users can create, edit and view customers
