@@ -12,7 +12,7 @@ export const Header = () => {
         <div className='flex items-center gap-2'>
           <NavButton label='Home' href='/' icon={HomeIcon} />
           <Link href='/home' title='Home' className='ml-0 flex items-center justify-center gap-2'>
-            <h1 className='m-0 mt-1 hidden font-bold text-xl sm:block'>Computer Repair Shop</h1>
+            <h1 className='hidden font-bold text-xl sm:block'>Computer Repair Shop</h1>
           </Link>
         </div>
 
