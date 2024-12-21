@@ -1,6 +1,7 @@
 import { ErrorDisplay } from '@/components/error-display';
-import { getCustomer } from '@/services/customer';
-import { getTicket } from '@/services/ticket';
+import { getCustomer } from '@/features/customer/services/customer.query';
+import { TicketForm } from '@/features/ticket/components/ticket-form';
+import { getTicket } from '@/features/ticket/services/ticket.query';
 
 type Props = {
   searchParams: Promise<Record<string, string | undefined>>;
@@ -23,6 +24,8 @@ export default async function TicketFormPage({ searchParams }: Props) {
     if (!customer.active) {
       return <ErrorDisplay label='Customer is not active' id={customerId} />;
     }
+
+    return <TicketForm customer={customer} />;
   }
 
   if (ticketId) {
@@ -34,6 +37,10 @@ export default async function TicketFormPage({ searchParams }: Props) {
 
     const customer = await getCustomer(ticket.customerId);
 
-    return <div>TICKET FORM</div>;
+    if (!customer) {
+      return <ErrorDisplay label='Customer not found' id={customerId} />;
+    }
+
+    return <TicketForm customer={customer} ticket={ticket} />;
   }
 }
