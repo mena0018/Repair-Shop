@@ -51,16 +51,6 @@
           "options": { "allow": ["warn", "error"] }
         },
         "noExplicitAny": "error"
-      },
-      "nursery": {
-        "useSortedClasses": {
-          "level": "warn",
-          "fix": "safe",
-          "options": {
-            "attributes": ["className"],
-            "functions": ["clsx", "cva", "cn"]
-          }
-        }
       }
     }
   }
