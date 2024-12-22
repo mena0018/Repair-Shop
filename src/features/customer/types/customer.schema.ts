@@ -6,15 +6,10 @@ export const CustomerSchema = z.object({
   address1: z.string().min(1, 'Address is required'),
   address2: z.string().optional(),
   city: z.string().min(1, 'City is required'),
-  state: z.string().length(2, 'State must be exactly 2 characters'),
+  state: z.string().length(3, 'State must be exactly 3 characters'),
   email: z.string().email('Invalid email address'),
-  zip: z
-    .string()
-    .regex(
-      /^\d{5}(-\d{4})?$/,
-      'Invalid Zip code. Use 5 digits or 5 digits followed by a hyphen and 4 digits',
-    ),
-  phone: z.string().regex(/^\d{3}-\d{3}-\d{4}$/, 'Invalid phone number format. Use XXX-XXX-XXXX'),
+  zip: z.string().regex(/^\d{5}$/, 'Invalid Zip code. Use 5 digits'),
+  phone: z.string().regex(/^\d{10}$/, 'Invalid phone number. Use 10 digits'),
   notes: z.string().optional(),
 });
 

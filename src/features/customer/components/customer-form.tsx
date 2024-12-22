@@ -1,7 +1,11 @@
 'use client';
 
+import { InputWithLabel } from '@/components/rhf/input-with-label';
+import { SelectWithLabel } from '@/components/rhf/select-with-label';
+import { TextAreaWithLabel } from '@/components/rhf/textarea-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
+import { states } from '@/features/customer/services/customer.data';
 import { CustomerFields, CustomerSchema } from '@/features/customer/types/customer.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Customer } from '@prisma/client';
@@ -36,18 +40,37 @@ export const CustomerForm = ({ customer }: Props) => {
   };
 
   return (
-    <div className='flex flex-col gap-1 sm:px-8'>
-      <div>
-        <h2 className='font-bold text-2xl'>{customer?.id ? 'Edit' : 'New'} Customer Form</h2>
-      </div>
+    <div className='flex flex-col gap-6 mt-4 sm:px-8'>
+      <h2 className='font-bold text-2xl'>{customer?.id ? 'Edit' : 'New'} Customer Form</h2>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='flex flex-col gap-4 sm:flex-row sm:gap-8'
+          className='flex flex-col gap-4 md:flex-row md:gap-8'
         >
-          <p>{JSON.stringify(form.getValues())}</p>
+          <div className='flex flex-col gap-4 w-full max-w-xs'>
+            <InputWithLabel<CustomerFields> required name='firstName' title='First name' />
+            <InputWithLabel<CustomerFields> required name='lastName' title='Last name' />
+            <InputWithLabel<CustomerFields> required name='address1' title='Address 1' />
+            <InputWithLabel<CustomerFields> name='address2' title='Address 2' />
+            <InputWithLabel<CustomerFields> required name='city' title='City' />
+          </div>
 
-          <Button type='submit'>Submit</Button>
+          <div className='flex flex-col gap-4 w-full max-w-xs'>
+            <InputWithLabel<CustomerFields> required name='email' title='Email' />
+            <InputWithLabel<CustomerFields> required name='zip' title='Zip code' />
+            <InputWithLabel<CustomerFields> required name='phone' title='Phone' />
+            <TextAreaWithLabel<CustomerFields> name='notes' title='Notes' className='h-40 ' />
+            <SelectWithLabel<CustomerFields> required name='state' title='State' data={states} />
+
+            <div className='flex gap-2 '>
+              <Button type='submit' title='Save' className='w-3/4'>
+                Submit
+              </Button>
+              <Button type='reset' variant='secondary' title='Reset' onClick={() => form.reset()}>
+                Reset
+              </Button>
+            </div>
+          </div>
         </form>
       </Form>
     </div>

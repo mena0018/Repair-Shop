@@ -1,7 +1,11 @@
 'use client';
 
+import { InputWithLabel } from '@/components/rhf/input-with-label';
+import { SwitchWithLabel } from '@/components/rhf/switch-with-label';
+import { TextAreaWithLabel } from '@/components/rhf/textarea-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
+import { CustomerInfos } from '@/features/customer/components/customer-infos';
 import { TicketFields, TicketSchema } from '@/features/ticket/types/ticket.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Customer, Ticket } from '@prisma/client';
@@ -33,20 +37,38 @@ export const TicketForm = ({ customer, ticket }: Props) => {
   };
 
   return (
-    <div className='flex flex-col gap-1 sm:px-8'>
-      <div>
-        <h2 className='font-bold text-2xl'>
-          {ticket?.id ? `Edit Ticket #${ticket.id} Form` : 'New Ticket Form'}
-        </h2>
-      </div>
+    <div className='flex flex-col gap-6 mt-4 sm:px-8'>
+      <h2 className='font-bold text-2xl'>
+        {ticket?.id ? `Edit Ticket #${ticket.id} Form` : 'New Ticket Form'}
+      </h2>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='flex flex-col gap-4 sm:flex-row sm:gap-8'
+          className='flex flex-col gap-4 md:flex-row md:gap-8'
         >
-          <p>{JSON.stringify(form.getValues())}</p>
+          <div className='flex flex-col gap-4 w-full max-w-xs'>
+            <InputWithLabel<TicketFields> required name='title' title='Title' />
+            <InputWithLabel<TicketFields> disabled name='tech' title='Tech' />
+            <SwitchWithLabel<TicketFields> name='completed' title='Completed' />
+            <CustomerInfos customer={customer} />
+          </div>
 
-          <Button type='submit'>Submit</Button>
+          <div className='flex flex-col gap-4 w-full max-w-xs'>
+            <TextAreaWithLabel<TicketFields>
+              required
+              name='description'
+              title='Description'
+              className='h-80'
+            />
+            <div className='flex gap-2'>
+              <Button type='submit' title='Save' className='w-3/4'>
+                Submit
+              </Button>
+              <Button type='reset' variant='secondary' title='Reset' onClick={() => form.reset()}>
+                Reset
+              </Button>
+            </div>
+          </div>
         </form>
       </Form>
     </div>
