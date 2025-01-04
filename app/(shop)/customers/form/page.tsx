@@ -2,11 +2,21 @@ import { ErrorDisplay } from '@/components/error-display';
 import { CustomerForm } from '@/features/customer/components/customer-form';
 import { getCustomer } from '@/features/customer/services/customer.query';
 
-type Props = {
+type SearchParams = {
   searchParams: Promise<Record<string, string | undefined>>;
 };
 
-export default async function CustomersFormPage({ searchParams }: Props) {
+export async function generateMetadata({ searchParams }: SearchParams) {
+  const { customerId } = await searchParams;
+
+  if (!customerId) {
+    return { title: 'New customer' };
+  }
+
+  return { title: `Edit Customer #${customerId}` };
+}
+
+export default async function CustomersFormPage({ searchParams }: SearchParams) {
   const { customerId } = await searchParams;
 
   if (!customerId) {

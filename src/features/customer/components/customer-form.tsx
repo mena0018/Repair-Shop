@@ -2,12 +2,14 @@
 
 import { InputWithLabel } from '@/components/rhf/input-with-label';
 import { SelectWithLabel } from '@/components/rhf/select-with-label';
+import { SwitchWithLabel } from '@/components/rhf/switch-with-label';
 import { TextAreaWithLabel } from '@/components/rhf/textarea-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { states } from '@/features/customer/services/customer.data';
 import { CustomerFields, CustomerSchema } from '@/features/customer/types/customer.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import { Customer } from '@prisma/client';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -16,6 +18,10 @@ type Props = {
 };
 
 export const CustomerForm = ({ customer }: Props) => {
+  const isEditForm = customer?.id;
+  const { getPermission, isLoading } = useKindeBrowserClient();
+  const isManager = !isLoading && getPermission('manager')?.isGranted;
+
   const defaultValues: CustomerFields = {
     firstName: customer?.firstName ?? '',
     lastName: customer?.lastName ?? '',
@@ -27,6 +33,7 @@ export const CustomerForm = ({ customer }: Props) => {
     zip: customer?.zip ?? '',
     phone: customer?.phone ?? '',
     notes: customer?.notes ?? '',
+    active: customer?.active ?? true,
   };
 
   const form = useForm<CustomerFields>({
@@ -41,7 +48,9 @@ export const CustomerForm = ({ customer }: Props) => {
 
   return (
     <div className='flex flex-col gap-6 mt-4 sm:px-8'>
-      <h2 className='font-bold text-2xl'>{customer?.id ? 'Edit' : 'New'} Customer Form</h2>
+      <h2 className='font-bold text-2xl'>
+        {isEditForm ? `Edit Customer #${customer.id}` : 'New Customer Form'}
+      </h2>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -61,6 +70,10 @@ export const CustomerForm = ({ customer }: Props) => {
             <InputWithLabel<CustomerFields> required name='phone' title='Phone' />
             <TextAreaWithLabel<CustomerFields> name='notes' title='Notes' className='h-40 ' />
             <SelectWithLabel<CustomerFields> required name='state' title='State' data={states} />
+
+            {isManager && isEditForm ? (
+              <SwitchWithLabel<CustomerFields> name='active' title='Active' />
+            ) : null}
 
             <div className='flex gap-2 '>
               <Button type='submit' title='Save' className='w-3/4'>

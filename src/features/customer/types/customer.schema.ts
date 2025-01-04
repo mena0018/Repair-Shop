@@ -11,6 +11,7 @@ export const CustomerSchema = z.object({
   zip: z.string().regex(/^\d{5}$/, 'Invalid Zip code. Use 5 digits'),
   phone: z.string().regex(/^\d{10}$/, 'Invalid phone number. Use 10 digits'),
   notes: z.string().optional(),
+  active: z.boolean().default(true),
 });
 
 export type CustomerFields = z.infer<typeof CustomerSchema>;

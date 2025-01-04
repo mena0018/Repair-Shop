@@ -2,23 +2,26 @@
 
 import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Switch } from '@/components/ui/switch';
+import { cn } from '@/lib/utils';
 import { useFormContext } from 'react-hook-form';
 
 type Props<TSchema> = {
   title: string;
   name: keyof TSchema & string;
+  disabled?: boolean;
 };
 
-export function SwitchWithLabel<TSchema>({ name, title }: Props<TSchema>) {
+export function SwitchWithLabel<TSchema>({ name, title, disabled }: Props<TSchema>) {
   const form = useFormContext();
 
   return (
     <FormField
       name={name}
+      disabled={disabled}
       control={form.control}
       render={({ field }) => (
         <FormItem className='w-full flex items-center gap-2'>
-          <FormLabel htmlFor={name} className='mt-2'>
+          <FormLabel htmlFor={name} className={cn('mt-2', { 'opacity-50': disabled })}>
             {title}
           </FormLabel>
 
