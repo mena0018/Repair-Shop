@@ -2,17 +2,36 @@ import { ErrorDisplay } from '@/components/error-display';
 import { getCustomer } from '@/features/customer/services/customer.query';
 import { TicketForm } from '@/features/ticket/components/ticket-form';
 import { getTicket } from '@/features/ticket/services/ticket.query';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { Users, init as initKindeManagementApi } from '@kinde/management-api-js';
 
-type Props = {
+type SearchParams = {
   searchParams: Promise<Record<string, string | undefined>>;
 };
 
-export default async function TicketFormPage({ searchParams }: Props) {
+export async function generateMetadata({ searchParams }: SearchParams) {
+  const { customerId, ticketId } = await searchParams;
+
+  if (!customerId && !ticketId) {
+    return { title: 'Missing ticket ID or customer ID' };
+  }
+  if (customerId) {
+    return { title: `New Ticket for Customer #${customerId}` };
+  }
+
+  return { title: `Edit Customer #${ticketId}` };
+}
+
+export default async function TicketFormPage({ searchParams }: SearchParams) {
   const { customerId, ticketId } = await searchParams;
 
   if (!customerId && !ticketId) {
     return <ErrorDisplay label='Ticket ID or Customer ID required to load ticket form' />;
   }
+
+  const { getPermission, getUser } = getKindeServerSession();
+  const [managerPermission, user] = await Promise.all([getPermission('manager'), getUser()]);
+  const isManager = managerPermission?.isGranted;
 
   if (customerId) {
     const customer = await getCustomer(parseInt(customerId));
@@ -23,6 +42,14 @@ export default async function TicketFormPage({ searchParams }: Props) {
 
     if (!customer.active) {
       return <ErrorDisplay label='Customer is not active' id={customerId} />;
+    }
+
+    if (isManager) {
+      initKindeManagementApi();
+      const { users } = await Users.getUsers();
+
+      const techs = users ? users.map(({ email }) => ({ id: email!, description: email! })) : [];
+      return <TicketForm customer={customer} techs={techs} />;
     }
 
     return <TicketForm customer={customer} />;
@@ -41,6 +68,20 @@ export default async function TicketFormPage({ searchParams }: Props) {
       return <ErrorDisplay label='Customer not found' id={customerId} />;
     }
 
-    return <TicketForm customer={customer} ticket={ticket} />;
+    if (isManager) {
+      initKindeManagementApi();
+      const { users } = await Users.getUsers();
+
+      const techs = users ? users.map(({ email }) => ({ id: email!, description: email! })) : [];
+      return <TicketForm customer={customer} ticket={ticket} techs={techs} />;
+    }
+
+    return (
+      <TicketForm
+        ticket={ticket}
+        customer={customer}
+        isEditable={user.email?.toLowerCase() === ticket.tech.toLowerCase()}
+      />
+    );
   }
 }
