@@ -13,7 +13,7 @@ model Customer {
   firstName String
   lastName  String
   email     String    @unique
-  phone     String    @unique
+  phone     String
   address1  String
   address2  String?
   city      String

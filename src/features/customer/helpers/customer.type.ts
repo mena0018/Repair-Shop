@@ -10,7 +10,7 @@ export const CustomerSchema = z.object({
   state: z.string().length(3, 'State must be exactly 3 characters'),
   email: z.string().email('Invalid email address'),
   zip: z.string().regex(/^\d{5}$/, 'Invalid Zip code. Use 5 digits'),
-  phone: z.string(),
+  phone: z.string().min(1, 'Phone is required'),
   notes: z.string().optional(),
   active: z.boolean().default(true),
 });
