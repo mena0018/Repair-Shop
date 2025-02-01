@@ -12,7 +12,7 @@ import {
   DEFAULT_TECH_TICKET,
   TicketFields,
   TicketSchema,
-} from '@/features/ticket/types/ticket.schema';
+} from '@/features/ticket/helpers/ticket.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Customer, Ticket } from '@prisma/client';
 import { SubmitHandler, useForm } from 'react-hook-form';
