@@ -17,7 +17,7 @@ model Customer {
   address1  String
   address2  String?
   city      String
-  state     String     @db.VarChar(2)
+  state     String     @db.VarChar(3)
   zip       String     @db.VarChar(10)
   notes     String?
   active    Boolean    @default(true)
