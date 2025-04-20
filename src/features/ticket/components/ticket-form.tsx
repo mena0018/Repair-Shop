@@ -13,8 +13,8 @@ import {
   TicketFields,
   TicketSchema,
 } from '@/features/ticket/helpers/ticket.schema';
+import { Customer, Ticket } from '@/generated/prisma';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Customer, Ticket } from '@prisma/client';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { Customer } from '@prisma/client';
+import { Customer } from '@/generated/prisma';
 
 export const CustomerInfos = ({ customer }: { customer: Customer }) => {
   return (
