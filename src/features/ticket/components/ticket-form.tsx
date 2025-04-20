@@ -6,13 +6,13 @@ import { SwitchWithLabel } from '@/components/rhf/switch-with-label';
 import { TextAreaWithLabel } from '@/components/rhf/textarea-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { CustomerInfos } from '@/features/customer/components/customer-infos';
+import { CustomerInfos } from '@/features/customer';
 import {
   DEFAULT_TECH_ID,
   DEFAULT_TECH_TICKET,
   TicketFields,
   TicketSchema,
-} from '@/features/ticket/helpers/ticket.schema';
+} from '@/src/features/ticket/types/ticket.schema';
 import { Customer, Ticket } from '@/generated/prisma';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';

@@ -1,6 +1,5 @@
 import { ErrorDisplay } from '@/components/error-display';
-import { CustomerForm } from '@/features/customer/components/customer-form';
-import { getCustomer } from '@/features/customer/services/customer.query';
+import { CustomerForm, getCustomer } from '@/features/customer';
 
 type SearchParams = {
   searchParams: Promise<Record<string, string | undefined>>;

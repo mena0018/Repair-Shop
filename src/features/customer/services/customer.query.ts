@@ -1,4 +1,3 @@
-import { CustomerFields } from '@/features/customer/helpers/customer.type';
 import { fetcherWithToastError } from '@/lib/fetcher';
 import prisma from '@/prisma/singleton';
 
