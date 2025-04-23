@@ -1,32 +1,32 @@
-import { ErrorDisplay } from '@/components/error-display';
-import { CustomerForm, getCustomer } from '@/features/customer';
+import { ErrorDisplay } from "@/components/error-display"
+import { CustomerForm, getCustomer } from "@/features/customer"
 
 type SearchParams = {
-  searchParams: Promise<Record<string, string | undefined>>;
-};
+  searchParams: Promise<Record<string, string | undefined>>
+}
 
 export async function generateMetadata({ searchParams }: SearchParams) {
-  const { customerId } = await searchParams;
+  const { customerId } = await searchParams
 
   if (!customerId) {
-    return { title: 'New customer' };
+    return { title: "New customer" }
   }
 
-  return { title: `Edit Customer #${customerId}` };
+  return { title: `Edit Customer #${customerId}` }
 }
 
 export default async function CustomersFormPage({ searchParams }: SearchParams) {
-  const { customerId } = await searchParams;
+  const { customerId } = await searchParams
 
   if (!customerId) {
-    return <CustomerForm />;
+    return <CustomerForm />
   }
 
-  const customer = await getCustomer(parseInt(customerId));
+  const customer = await getCustomer(parseInt(customerId))
 
   if (!customer) {
-    return <ErrorDisplay label='Customer not found' id={customerId} />;
+    return <ErrorDisplay label="Customer not found" id={customerId} />
   }
 
-  return <CustomerForm customer={customer} />;
+  return <CustomerForm customer={customer} />
 }

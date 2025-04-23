@@ -1,12 +1,6 @@
-import { withAuth } from '@kinde-oss/kinde-auth-nextjs/middleware';
-import { NextRequest } from 'next/server';
+import { withAuth } from "@kinde-oss/kinde-auth-nextjs/middleware"
 
-export default withAuth(
-  async function middleware(request: NextRequest) {
-    // console.log(request);
-  },
-  { isReturnToCurrentPage: true },
-);
+export default withAuth(async () => {}, { isReturnToCurrentPage: true })
 
 export const config = {
   matcher: [
@@ -21,6 +15,6 @@ export const config = {
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      * - homepage (represented with after beginning with a slash)
      */
-    '/((?!api|_next/static|_next/image|images|auth|login|favicon.ico|sitemap.xml|robots.txt|$).*)',
-  ],
-};
+    "/((?!api|_next/static|_next/image|images|auth|login|favicon.ico|sitemap.xml|robots.txt|$).*)"
+  ]
+}

@@ -1,17 +1,18 @@
-'use client';
+"use client"
 
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { TextArea } from '@/components/ui/textarea';
-import { cn } from '@/lib/utils';
-import { TextareaHTMLAttributes } from 'react';
-import { useFormContext } from 'react-hook-form';
+import { TextareaHTMLAttributes } from "react"
+import { useFormContext } from "react-hook-form"
+
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { TextArea } from "@/components/ui/textarea"
+import { cn } from "@/lib/utils"
 
 type Props<TSchema> = {
-  title: string;
-  name: keyof TSchema & string;
-  required?: boolean;
-  className?: string;
-} & TextareaHTMLAttributes<HTMLTextAreaElement>;
+  title: string
+  name: keyof TSchema & string
+  required?: boolean
+  className?: string
+} & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export function TextAreaWithLabel<TSchema>({
   name,
@@ -20,7 +21,7 @@ export function TextAreaWithLabel<TSchema>({
   required,
   ...props
 }: Props<TSchema>) {
-  const form = useFormContext();
+  const form = useFormContext()
 
   return (
     <FormField
@@ -30,13 +31,13 @@ export function TextAreaWithLabel<TSchema>({
         <FormItem>
           <FormLabel htmlFor={name}>
             <span>{title}</span>
-            {required && <span className='ml-1 text-destructive'>*</span>}
+            {required && <span className="text-destructive ml-1">*</span>}
           </FormLabel>
 
           <FormControl>
             <TextArea
               id={name}
-              className={cn({ 'border-destructive': error }, className)}
+              className={cn({ "border-destructive": error }, className)}
               {...props}
               {...field}
             />
@@ -46,5 +47,5 @@ export function TextAreaWithLabel<TSchema>({
         </FormItem>
       )}
     />
-  );
+  )
 }

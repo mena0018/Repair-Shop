@@ -1,87 +1,88 @@
-'use client';
+"use client"
 
-import { InputWithLabel } from '@/components/rhf/input-with-label';
-import { SelectWithLabel } from '@/components/rhf/select-with-label';
-import { SwitchWithLabel } from '@/components/rhf/switch-with-label';
-import { TextAreaWithLabel } from '@/components/rhf/textarea-with-label';
-import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
-import { CustomerInfos } from '@/features/customer';
+import { SubmitHandler, useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+
+import { InputWithLabel } from "@/components/rhf/input-with-label"
+import { SelectWithLabel } from "@/components/rhf/select-with-label"
+import { SwitchWithLabel } from "@/components/rhf/switch-with-label"
+import { TextAreaWithLabel } from "@/components/rhf/textarea-with-label"
+import { Button } from "@/components/ui/button"
+import { Form } from "@/components/ui/form"
+import { CustomerInfos } from "@/features/customer"
 import {
   DEFAULT_TECH_ID,
   DEFAULT_TECH_TICKET,
   TicketFields,
-  TicketSchema,
-} from '@/src/features/ticket/types/ticket.schema';
-import { Customer, Ticket } from '@/generated/prisma';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { SubmitHandler, useForm } from 'react-hook-form';
+  TicketSchema
+} from "@/features/ticket/types/ticket.schema"
+import { Customer, Ticket } from "@/generated/prisma"
 
 type Props = {
-  ticket?: Ticket;
-  customer: Customer;
-  isEditable?: boolean;
-  techs?: Array<{ id: string; description: string }>;
-};
+  ticket?: Ticket
+  customer: Customer
+  isEditable?: boolean
+  techs?: Array<{ id: string; description: string }>
+}
 
 export const TicketForm = ({ customer, ticket, isEditable = true, techs }: Props) => {
-  const isManager = Array.isArray(techs);
+  const isManager = Array.isArray(techs)
 
   const defaultValues: TicketFields = {
     id: ticket?.id ?? DEFAULT_TECH_ID,
     customerId: ticket?.customerId ?? customer.id,
-    title: ticket?.title ?? '',
-    description: ticket?.description ?? '',
+    title: ticket?.title ?? "",
+    description: ticket?.description ?? "",
     completed: ticket?.completed ?? false,
-    tech: ticket?.tech ?? DEFAULT_TECH_TICKET,
-  };
+    tech: ticket?.tech ?? DEFAULT_TECH_TICKET
+  }
 
   const form = useForm<TicketFields>({
-    mode: 'onBlur',
+    mode: "onBlur",
     resolver: zodResolver(TicketSchema),
-    defaultValues,
-  });
+    defaultValues
+  })
 
   const onSubmit: SubmitHandler<TicketFields> = async (data) => {
-    alert(data);
-  };
+    alert(data)
+  }
 
   return (
-    <div className='flex flex-col gap-6 mt-4 sm:px-8'>
-      <h2 className='font-bold text-2xl'>
+    <div className="mt-4 flex flex-col gap-6 sm:px-8">
+      <h2 className="text-2xl font-bold">
         {ticket?.id && isEditable
           ? `Edit Ticket #${ticket.id}`
           : ticket?.id
             ? `View Ticket #${ticket.id}`
-            : 'New Ticket Form'}
+            : "New Ticket Form"}
       </h2>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='flex flex-col gap-4 md:flex-row md:gap-8'
+          className="flex flex-col gap-4 md:flex-row md:gap-8"
         >
-          <div className='flex flex-col gap-4 w-full max-w-xs'>
+          <div className="flex w-full max-w-xs flex-col gap-4">
             <InputWithLabel<TicketFields>
               required
-              name='title'
-              title='Title'
+              name="title"
+              title="Title"
               disabled={!isEditable}
             />
 
             {isManager ? (
               <SelectWithLabel<TicketFields>
-                name='tech'
-                title='Tech ID'
+                name="tech"
+                title="Tech ID"
                 data={[{ id: DEFAULT_TECH_TICKET, description: DEFAULT_TECH_TICKET }, ...techs]}
               />
             ) : (
-              <InputWithLabel<TicketFields> name='tech' title='Tech' disabled />
+              <InputWithLabel<TicketFields> name="tech" title="Tech" disabled />
             )}
 
             {ticket?.id ? (
               <SwitchWithLabel<TicketFields>
-                name='completed'
-                title='Completed'
+                name="completed"
+                title="Completed"
                 disabled={!isEditable}
               />
             ) : null}
@@ -89,21 +90,21 @@ export const TicketForm = ({ customer, ticket, isEditable = true, techs }: Props
             <CustomerInfos customer={customer} />
           </div>
 
-          <div className='flex flex-col gap-4 w-full max-w-xs'>
+          <div className="flex w-full max-w-xs flex-col gap-4">
             <TextAreaWithLabel<TicketFields>
               required
-              name='description'
-              title='Description'
-              className='h-80'
+              name="description"
+              title="Description"
+              className="h-80"
               disabled={!isEditable}
             />
 
             {isEditable ? (
-              <div className='flex gap-2'>
-                <Button type='submit' title='Save' className='w-3/4'>
+              <div className="flex gap-2">
+                <Button type="submit" title="Save" className="w-3/4">
                   Submit
                 </Button>
-                <Button type='reset' variant='secondary' title='Reset' onClick={() => form.reset()}>
+                <Button type="reset" variant="secondary" title="Reset" onClick={() => form.reset()}>
                   Reset
                 </Button>
               </div>
@@ -112,5 +113,5 @@ export const TicketForm = ({ customer, ticket, isEditable = true, techs }: Props
         </form>
       </Form>
     </div>
-  );
-};
+  )
+}

@@ -1,19 +1,20 @@
-import { Button } from '@/components/ui/button';
-import { LucideIcon } from 'lucide-react';
-import Link from 'next/link';
+import { LucideIcon } from "lucide-react"
+import Link from "next/link"
+
+import { Button } from "@/components/ui/button"
 
 type NavButtonProps = {
-  icon: LucideIcon;
-  label: string;
-  href?: string;
-};
+  icon: LucideIcon
+  label: string
+  href?: string
+}
 
 export const NavButton = ({ icon: Icon, label, href }: NavButtonProps) => {
   return (
     <Button
-      size='icon'
-      variant='ghost'
-      className='rounded-full'
+      size="icon"
+      variant="ghost"
+      className="rounded-full"
       title={label}
       aria-label={label}
       asChild
@@ -26,5 +27,5 @@ export const NavButton = ({ icon: Icon, label, href }: NavButtonProps) => {
         <Icon />
       )}
     </Button>
-  );
-};
+  )
+}

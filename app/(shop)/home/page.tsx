@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'Home',
-};
+  title: "Home"
+}
 
 export default function HomePage() {
-  return <h2>HomePage</h2>;
+  return <h2>HomePage</h2>
 }

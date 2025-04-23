@@ -149,6 +149,6 @@
     @apply border-border;
   }
   body {
-    @apply min-h-screen bg-background font-sans text-foreground antialiased;
+    @apply bg-background text-foreground min-h-screen font-sans antialiased;
   }
 }

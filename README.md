@@ -8,7 +8,7 @@
 - 🔗 [React](https://react.dev/)
 - 🔗 [TypeScript](https://www.typescriptlang.org/)
 - 🔗 [TailwindCSS](https://tailwindcss.com/)
-- 🔗 [Biome](https://biomejs.dev/)
+- 🔗 [Eslint](https://eslint.org/)
 - 🔗 [ShadCN/ui](https://ui.shadcn.com/)
 - 🔗 [Sentry](https://bit.ly/sentry-docs-dg)
 - 🔗 [Kinde Auth](https://kinde.com/dgray-nextjsstack/)
@@ -35,5 +35,5 @@ pnpm install
 #### Seeding Database
 
 ```bash
-pnpm run seed
+pnpm run db:seed
 ```

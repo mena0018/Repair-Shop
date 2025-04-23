@@ -1,18 +1,19 @@
-'use client';
+"use client"
 
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from "react"
+import { useRouter } from "next/navigation"
+
+import { Button } from "@/components/ui/button"
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  title?: string;
-  className?: string;
-  size?: 'default' | 'sm' | 'lg' | 'icon';
-  variant?: 'default' | 'outline' | 'ghost' | 'destructive' | 'secondary' | 'link';
-};
+  title?: string
+  className?: string
+  size?: "default" | "sm" | "lg" | "icon"
+  variant?: "default" | "outline" | "ghost" | "destructive" | "secondary" | "link"
+}
 
-export const BackButton = ({ title = 'Go Back', className, variant, size }: Props) => {
-  const router = useRouter();
+export const BackButton = ({ title = "Go Back", className, variant, size }: Props) => {
+  const router = useRouter()
 
   return (
     <Button
@@ -24,5 +25,5 @@ export const BackButton = ({ title = 'Go Back', className, variant, size }: Prop
     >
       {title}
     </Button>
-  );
-};
+  )
+}

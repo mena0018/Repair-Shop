@@ -1,37 +1,38 @@
-'use client';
+"use client"
 
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useFormContext } from "react-hook-form"
+
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { cn } from '@/lib/utils';
-import { useFormContext } from 'react-hook-form';
+  SelectValue
+} from "@/components/ui/select"
+import { cn } from "@/lib/utils"
 
 type SelectData = {
-  id: string;
-  description: string;
-};
+  id: string
+  description: string
+}
 
 type Props<TSchema> = {
-  title: string;
-  name: keyof TSchema & string;
-  data: Array<SelectData>;
-  required?: boolean;
-  className?: string;
-};
+  title: string
+  name: keyof TSchema & string
+  data: Array<SelectData>
+  required?: boolean
+  className?: string
+}
 
 export function SelectWithLabel<TSchema>({
   name,
   title,
   data,
   className,
-  required,
+  required
 }: Props<TSchema>) {
-  const form = useFormContext();
+  const form = useFormContext()
 
   return (
     <FormField
@@ -41,13 +42,13 @@ export function SelectWithLabel<TSchema>({
         <FormItem>
           <FormLabel htmlFor={name}>
             <span>{title}</span>
-            {required && <span className='ml-1 text-destructive'>*</span>}
+            {required && <span className="text-destructive ml-1">*</span>}
           </FormLabel>
 
           <Select {...field} onValueChange={field.onChange}>
             <FormControl>
-              <SelectTrigger id={name} className={cn({ 'border-destructive': error }, className)}>
-                <SelectValue placeholder='Select' />
+              <SelectTrigger id={name} className={cn({ "border-destructive": error }, className)}>
+                <SelectValue placeholder="Select" />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
@@ -63,5 +64,5 @@ export function SelectWithLabel<TSchema>({
         </FormItem>
       )}
     />
-  );
+  )
 }

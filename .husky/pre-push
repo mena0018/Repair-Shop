@@ -3,17 +3,17 @@
 nvm use
 
 echo "\n==============================="
-echo "🔍 Linting staged files"
+echo "🔍 Check tests errors"
 echo "==============================="
 
-pnpm run lint-staged || exit 1
+pnpm run test || exit 1
 
 echo "\n==============================="
-echo "🔍 Check typescript errors"
+echo "🔍 Check build errors"
 echo "==============================="
 
-pnpm run typecheck || exit 1
+pnpm run build || exit 1
 
-echo "==============================="
-echo "✅ All pre-commit checks are good"
+echo "\n==============================="
+echo "✅ All pre-push checks are good"
 echo "===============================\n"

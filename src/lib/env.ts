@@ -1,5 +1,5 @@
-import { createEnv } from '@t3-oss/env-nextjs';
-import { z } from 'zod';
+import { createEnv } from "@t3-oss/env-nextjs"
+import { z } from "zod"
 
 export const env = createEnv({
   server: {
@@ -19,13 +19,13 @@ export const env = createEnv({
 
     KINDE_DOMAIN: z.string().url(),
     KINDE_MANAGEMENT_CLIENT_ID: z.string().min(1),
-    KINDE_MANAGEMENT_CLIENT_SECRET: z.string().min(1),
+    KINDE_MANAGEMENT_CLIENT_SECRET: z.string().min(1)
   },
   client: {
     NEXT_PUBLIC_SENTRY_DSN: z.string().url(),
     NEXT_PUBLIC_KINDE_EMAIL: z.string(),
     NEXT_PUBLIC_KINDE_GMAIL: z.string(),
-    NEXT_PUBLIC_KINDE_GITHUB: z.string(),
+    NEXT_PUBLIC_KINDE_GITHUB: z.string()
   },
   runtimeEnv: {
     AUTH_SECRET: process.env.AUTH_SECRET,
@@ -49,6 +49,6 @@ export const env = createEnv({
 
     NEXT_PUBLIC_KINDE_EMAIL: process.env.NEXT_PUBLIC_KINDE_EMAIL,
     NEXT_PUBLIC_KINDE_GMAIL: process.env.NEXT_PUBLIC_KINDE_GMAIL,
-    NEXT_PUBLIC_KINDE_GITHUB: process.env.NEXT_PUBLIC_KINDE_GITHUB,
-  },
-});
+    NEXT_PUBLIC_KINDE_GITHUB: process.env.NEXT_PUBLIC_KINDE_GITHUB
+  }
+})
