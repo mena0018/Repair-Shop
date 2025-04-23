@@ -1,6 +1,7 @@
-import { Button } from '@/components/ui/button';
 import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/components';
 import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
 
 export default function LoginPage() {
   return (
@@ -10,7 +11,9 @@ export default function LoginPage() {
         <LoginLink>Sign in</LoginLink>
       </Button>
 
-      <Button asChild variant='link'>
+      <Button
+        asChild
+        variant='link'>
         <Link href='/'>HomePage</Link>
       </Button>
     </main>

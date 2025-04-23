@@ -1,8 +1,9 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { ButtonHTMLAttributes } from 'react';
+
+import { Button } from '@/components/ui/button';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   title?: string;
@@ -20,8 +21,7 @@ export const BackButton = ({ title = 'Go Back', className, variant, size }: Prop
       title={title}
       variant={variant}
       className={className}
-      onClick={() => router.back()}
-    >
+      onClick={() => router.back()}>
       {title}
     </Button>
   );

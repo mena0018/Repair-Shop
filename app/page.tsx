@@ -1,6 +1,7 @@
+import Link from 'next/link';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -8,7 +9,7 @@ export default function Page() {
       <Link href='/home'>
         <Card className='mx-auto w-4/5 sm:max-w-96'>
           <CardHeader>
-            <CardTitle className='font-bold text-4xl'>Dan's Computer Repair Shop</CardTitle>
+            <CardTitle className='text-4xl font-bold'>Dan's Computer Repair Shop</CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col gap-6 text-lg'>
             <address className='flex flex-col'>
@@ -21,7 +22,10 @@ export default function Page() {
         </Card>
       </Link>
 
-      <Button asChild className='mx-auto w-fit' variant='secondary'>
+      <Button
+        asChild
+        className='mx-auto w-fit'
+        variant='secondary'>
         <Link href='/login'>View more</Link>
       </Button>
     </main>

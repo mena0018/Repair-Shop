@@ -1,18 +1,15 @@
 {
   //* EDITOR
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "biomejs.biome",
-  "editor.codeActionsOnSave": {
-    "quickfix.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"], // Runs Prettier, then ESLint
 
   //* TYPESCRIPT
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": "node_modules/typescript/lib",
 
   //* EXTENSIONS
+  "conventionalCommits.promptCI": false,
   "conventionalCommits.promptBody": false,
-  "conventionalCommits.promptFooter": false,
-  "conventionalCommits.promptCI": false
+  "conventionalCommits.promptFooter": false
 }
