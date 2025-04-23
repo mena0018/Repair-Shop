@@ -1,10 +1,11 @@
 'use client';
 
+import { InputHTMLAttributes } from 'react';
+import { useFormContext } from 'react-hook-form';
+
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { InputHTMLAttributes } from 'react';
-import { useFormContext } from 'react-hook-form';
 
 type Props<TSchema> = {
   title: string;
@@ -30,7 +31,7 @@ export function InputWithLabel<TSchema>({
         <FormItem>
           <FormLabel htmlFor={name}>
             <span>{title}</span>
-            {required && <span className='ml-1 text-destructive'>*</span>}
+            {required && <span className='text-destructive ml-1'>*</span>}
           </FormLabel>
 
           <FormControl>

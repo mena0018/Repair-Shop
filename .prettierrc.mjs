@@ -3,8 +3,8 @@ const baseConfig = {
   semi: true,
   tabWidth: 2,
   singleQuote: true,
+  jsxSingleQuote: true,
   bracketSameLine: true,
-  arrowParens: 'avoid',
   printWidth: 100,
   singleAttributePerLine: true,
 };

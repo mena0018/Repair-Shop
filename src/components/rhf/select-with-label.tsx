@@ -1,5 +1,7 @@
 'use client';
 
+import { useFormContext } from 'react-hook-form';
+
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import {
   Select,
@@ -9,7 +11,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { useFormContext } from 'react-hook-form';
 
 type SelectData = {
   id: string;
@@ -41,18 +42,24 @@ export function SelectWithLabel<TSchema>({
         <FormItem>
           <FormLabel htmlFor={name}>
             <span>{title}</span>
-            {required && <span className='ml-1 text-destructive'>*</span>}
+            {required && <span className='text-destructive ml-1'>*</span>}
           </FormLabel>
 
-          <Select {...field} onValueChange={field.onChange}>
+          <Select
+            {...field}
+            onValueChange={field.onChange}>
             <FormControl>
-              <SelectTrigger id={name} className={cn({ 'border-destructive': error }, className)}>
+              <SelectTrigger
+                id={name}
+                className={cn({ 'border-destructive': error }, className)}>
                 <SelectValue placeholder='Select' />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
               {data.map((item) => (
-                <SelectItem key={`${name}_${item.id}`} value={item.id}>
+                <SelectItem
+                  key={`${name}_${item.id}`}
+                  value={item.id}>
                   {item.description}
                 </SelectItem>
               ))}

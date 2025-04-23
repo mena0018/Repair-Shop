@@ -25,7 +25,12 @@ export default async function CustomersFormPage({ searchParams }: SearchParams) 
   const customer = await getCustomer(parseInt(customerId));
 
   if (!customer) {
-    return <ErrorDisplay label='Customer not found' id={customerId} />;
+    return (
+      <ErrorDisplay
+        label='Customer not found'
+        id={customerId}
+      />
+    );
   }
 
   return <CustomerForm customer={customer} />;

@@ -4,18 +4,21 @@ const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
 });
 
-/** @type {import('eslint').Linter.Config[]} */
-const baseConfig = [
+/** @type {import("eslint").Linter.Config} */
+const nextConfig = [
   ...compat.config({
-    extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
+    extends: [
+      'plugin:@typescript-eslint/recommended',
+      'prettier',
+      'next',
+      'next/core-web-vitals',
+      'next/typescript',
+    ],
     plugins: ['@typescript-eslint', 'import', 'unused-imports'],
     parser: '@typescript-eslint/parser',
-    ignorePatterns: ['.next/', 'node_modules/'],
+    ignorePatterns: ['.next/', 'node_modules/', 'src/generated'],
     rules: {
-      quotes: ['warn', 'single'],
-      'prefer-arrow-callback': 'error',
       'react/no-unescaped-entities': 'off',
-      'import/named': 'error',
       'import/default': 'error',
 
       'import/no-duplicates': 'warn',
@@ -37,14 +40,6 @@ const baseConfig = [
         },
       ],
     },
-  }),
-];
-
-/** @type {import("eslint").Linter.Config} */
-const nextConfig = [
-  ...baseConfig,
-  ...compat.config({
-    extends: ['next', 'next/core-web-vitals', 'next/typescript'],
   }),
 ];
 

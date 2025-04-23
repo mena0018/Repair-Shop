@@ -73,7 +73,11 @@ const FormItem = ({ className, ...props }: React.ComponentProps<'div'>) => {
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div className={cn('space-y-2', className)} data-slot='form-item' {...props} />
+      <div
+        className={cn('space-y-2', className)}
+        data-slot='form-item'
+        {...props}
+      />
     </FormItemContext.Provider>
   );
 };
@@ -111,7 +115,7 @@ const FormDescription = ({ className, ...props }: React.ComponentProps<'p'>) => 
   return (
     <p
       id={formDescriptionId}
-      className={cn('text-[0.8rem] text-muted-foreground', className)}
+      className={cn('text-muted-foreground text-[0.8rem]', className)}
       data-slot='form-description'
       {...props}
     />
@@ -129,10 +133,9 @@ const FormMessage = ({ className, children, ...props }: React.ComponentProps<'p'
   return (
     <p
       id={formMessageId}
-      className={cn('text-[0.8rem] font-medium text-destructive', className)}
+      className={cn('text-destructive text-[0.8rem] font-medium', className)}
       data-slot='form-message'
-      {...props}
-    >
+      {...props}>
       {body}
     </p>
   );

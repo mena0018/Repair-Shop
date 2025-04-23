@@ -1,6 +1,7 @@
-import { Button } from '@/components/ui/button';
 import { LucideIcon } from 'lucide-react';
 import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
 
 type NavButtonProps = {
   icon: LucideIcon;
@@ -16,8 +17,7 @@ export const NavButton = ({ icon: Icon, label, href }: NavButtonProps) => {
       className='rounded-full'
       title={label}
       aria-label={label}
-      asChild
-    >
+      asChild>
       {href ? (
         <Link href={href}>
           <Icon />

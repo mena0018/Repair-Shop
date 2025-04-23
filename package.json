@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "prettier": "prettier --check",
+    "prettier": "prettier --check .",
     "prettier:fix": "prettier --write --list-different .",
     "format": "pnpm run lint:fix && pnpm run prettier:fix",
     "prepare": "husky",
