@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         <p className='mt-4'>We can't find that page.</p>
         <Link
           href='/home'
-          className='mt-6 inline-block rounded bg-indigo-800 px-5 py-3 font-medium text-sm text-white hover:bg-indigo-900 focus:outline-none focus:ring dark:text-foreground'
+          className='mt-6 inline-block rounded bg-indigo-800 px-5 py-3 font-medium text-sm text-white hover:bg-indigo-900 focus:outline-hidden focus:ring-3 dark:text-foreground'
         >
           Go Back Home
         </Link>

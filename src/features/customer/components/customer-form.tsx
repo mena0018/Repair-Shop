@@ -6,11 +6,10 @@ import { SwitchWithLabel } from '@/components/rhf/switch-with-label';
 import { TextAreaWithLabel } from '@/components/rhf/textarea-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { states } from '@/features/customer/services/customer.data';
-import { CustomerFields, CustomerSchema } from '@/features/customer/types/customer.schema';
+import { CustomerFields, CustomerSchema, states } from '@/features/customer';
+import { Customer } from '@/generated/prisma';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
-import { Customer } from '@prisma/client';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type Props = {

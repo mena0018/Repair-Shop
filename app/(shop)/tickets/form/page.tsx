@@ -1,7 +1,6 @@
 import { ErrorDisplay } from '@/components/error-display';
-import { getCustomer } from '@/features/customer/services/customer.query';
-import { TicketForm } from '@/features/ticket/components/ticket-form';
-import { getTicket } from '@/features/ticket/services/ticket.query';
+import { getCustomer } from '@/features/customer';
+import { TicketForm, getTicket } from '@/features/ticket';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { Users, init as initKindeManagementApi } from '@kinde/management-api-js';
 

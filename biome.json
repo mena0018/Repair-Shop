@@ -4,7 +4,7 @@
     "enabled": true
   },
   "files": {
-    "ignore": [".next/**/*", "node_modules/**/*"]
+    "ignore": [".next/**/*", "node_modules/**/*", "src/generated/**/*"]
   },
   "vcs": {
     "enabled": false,
