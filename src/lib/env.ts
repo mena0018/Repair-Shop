@@ -3,9 +3,9 @@ import { z } from 'zod';
 
 export const env = createEnv({
   server: {
-    AUTH_SECRET: z.string().min(1),
     DATABASE_URL: z.string().url(),
-
+    BETTER_AUTH_URL: z.string().min(1),
+    BETTER_AUTH_SECRET: z.string().min(1),
     SENTRY_AUTH_TOKEN: z.string().min(1),
 
     KINDE_CLIENT_ID: z.string().min(1),
@@ -28,9 +28,9 @@ export const env = createEnv({
     NEXT_PUBLIC_KINDE_GITHUB: z.string(),
   },
   runtimeEnv: {
-    AUTH_SECRET: process.env.AUTH_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
-
+    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
+    BETTER_AUTH_SECRET: process.env.AUTH_SECRET,
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
