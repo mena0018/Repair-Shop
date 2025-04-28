@@ -1,13 +1,16 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { LoaderCircle } from 'lucide-react';
 import Link from 'next/link';
+import { useAction } from 'next-safe-action/hooks';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { AlertServerResponse } from '@/components/alert-server-response';
 import { InputWithLabel } from '@/components/rhf/input-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { SignInFormFields, SignInFormSchema, signInClient } from '@/features/auth';
+import { SignInFormFields, SignInFormSchema, signInAction } from '@/features/auth';
 
 export function SignInForm() {
   const defaultValues: SignInFormFields = {
@@ -22,8 +25,11 @@ export function SignInForm() {
     defaultValues,
   });
 
+  const { result, isPending, execute: signIn } = useAction(signInAction);
+  const hasResult = Object.keys(result).length > 0;
+
   const onSubmit: SubmitHandler<SignInFormFields> = async (data) => {
-    await signInClient({ ...data });
+    signIn(data);
   };
 
   return (
@@ -47,8 +53,9 @@ export function SignInForm() {
 
         <Button
           type='submit'
-          className='w-full'>
-          Login
+          className='w-full'
+          disabled={isPending}>
+          {isPending ? <LoaderCircle className='animate-spin' /> : 'Login'}
         </Button>
         <div className='space-x-1 text-center text-sm'>
           <span>Don't have an account ?</span>
@@ -58,6 +65,8 @@ export function SignInForm() {
             Sign up
           </Link>
         </div>
+
+        {hasResult ? <AlertServerResponse result={result} /> : null}
       </form>
     </Form>
   );

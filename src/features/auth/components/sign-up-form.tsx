@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { InputWithLabel } from '@/components/rhf/input-with-label';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { SignUpFormFields, SignUpFormSchema, signUpClient } from '@/features/auth';
+import { SignUpFormFields, SignUpFormSchema, signInAction } from '@/features/auth';
 
 export function SignUpForm() {
   const defaultValues: SignUpFormFields = {
@@ -23,7 +23,7 @@ export function SignUpForm() {
   });
 
   const onSubmit: SubmitHandler<SignUpFormFields> = async (data) => {
-    await signUpClient({ ...data });
+    await signInAction(data);
   };
 
   return (

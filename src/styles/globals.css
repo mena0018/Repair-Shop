@@ -19,6 +19,7 @@
   --accent: hsl(220 14.3% 95.9%);
   --accent-foreground: hsl(220.9 39.3% 11%);
   --destructive: hsl(0 84.2% 60.2%);
+  --positive: hsl(149, 76%, 38%);
   --destructive-foreground: hsl(210 20% 98%);
   --border: hsl(220 13% 91%);
   --input: hsl(220 13% 91%);
@@ -47,6 +48,7 @@
   --accent: hsl(215 27.9% 16.9%);
   --accent-foreground: hsl(210 20% 98%);
   --destructive: hsl(0 62.8% 45%);
+  --positive: hsl(149, 77%, 30%);
   --destructive-foreground: hsl(210 20% 98%);
   --border: hsl(215 27.9% 16.9%);
   --input: hsl(215 27.9% 16.9%);
@@ -73,6 +75,8 @@
 
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-positive: var(--positive);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
