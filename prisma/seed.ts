@@ -1,6 +1,6 @@
+import prisma from '@/lib/prisma';
 import { generateCustomers } from '@/prisma/data/customers';
 import { generateTickets } from '@/prisma/data/tickets';
-import prisma from '@/prisma/singleton';
 
 const seed = async () => {
   const customers = generateCustomers();
