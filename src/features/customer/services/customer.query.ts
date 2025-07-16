@@ -1,5 +1,5 @@
 import { fetcherWithToastError } from "@/lib/fetcher"
-import prisma from "@/prisma/singleton"
+import prisma from "@/lib/prisma"
 
 export const getCustomer = async (id: number) => {
   return fetcherWithToastError(() =>
