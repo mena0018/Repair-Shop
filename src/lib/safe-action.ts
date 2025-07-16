@@ -27,4 +27,5 @@ export const actionClient = createSafeActionClient({
     console.error('Action error:', error.message);
     return error.message;
   },
+  defaultValidationErrorsShape: 'flattened',
 });

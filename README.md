@@ -11,7 +11,7 @@
 - 🔗 [Eslint](https://eslint.org/)
 - 🔗 [ShadCN/ui](https://ui.shadcn.com/)
 - 🔗 [Sentry](https://bit.ly/sentry-docs-dg)
-- 🔗 [Kinde Auth](https://kinde.com/dgray-nextjsstack/)
+- 🔗 [Better Auth](https://www.better-auth.com)
 - 🔗 [Neon Postgres](https://fyi.neon.tech/davegray)
 - 🔗 [Prisma ORM](https://www.prisma.io/)
 - 🔗 [react-hook-form](https://react-hook-form.com/)

@@ -1,4 +1,3 @@
-import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
 import { File, HomeIcon, LogOut, UsersRound } from 'lucide-react';
 import Link from 'next/link';
 
@@ -38,15 +37,12 @@ export const Header = () => {
           <ThemeToggle />
 
           <Button
-            asChild
-            size='icon'
-            title='logout'
             variant='ghost'
+            size='icon'
+            title='Logout'
             aria-label='logout'
             className='rounded-full'>
-            <LogoutLink>
-              <LogOut />
-            </LogoutLink>
+            <LogOut />
           </Button>
         </div>
       </div>
