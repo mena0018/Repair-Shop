@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { errorMetadata } from "@/lib/site-config"
+import { errorMetadata } from "@/libs/site-config"
 
 export const metadata = errorMetadata
 

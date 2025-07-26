@@ -1,5 +1,5 @@
-import { fetcherWithToastError } from "@/lib/fetcher"
-import prisma from "@/lib/prisma"
+import { fetcherWithToastError } from "@/libs/fetcher"
+import prisma from "@/libs/prisma"
 
 export const getTicket = (id: number) => {
   return fetcherWithToastError(() => prisma.ticket.findUnique({ where: { id } }))

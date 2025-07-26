@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma"
+import prisma from "@/libs/prisma"
 
 import { generateCustomers } from "./fixtures/customer.fixtures"
 import { generateTickets } from "./fixtures/ticket.fixtures"

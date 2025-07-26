@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { Lato } from "next/font/google"
 
 import { Providers } from "@/components/providers"
-import { baseMetadata } from "@/lib/site-config"
-import { cn } from "@/lib/utils"
+import { baseMetadata } from "@/libs/site-config"
+import { cn } from "@/libs/utils"
 
 import "@/styles/globals.css"
 

@@ -76,7 +76,7 @@ const nextConfig = [
         files: [
           "./middleware.ts",
           "**/*config.{js,mjs,cjs,ts,mts,cts}",
-          "src/lib/**/*.{ts,tsx}",
+          "src/libs/**/*.{ts,tsx}",
           "src/**/{page,layout,template,loading,error,not-found,global-error}.tsx"
         ],
         rules: {

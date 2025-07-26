@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form"
 
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { TextArea } from "@/components/ui/textarea"
-import { cn } from "@/lib/utils"
+import { cn } from "@/libs/utils"
 
 type Props<TSchema> = {
   title: string

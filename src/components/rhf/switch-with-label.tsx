@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form"
 
 import { FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
 import { Switch } from "@/components/ui/switch"
-import { cn } from "@/lib/utils"
+import { cn } from "@/libs/utils"
 
 type Props<TSchema> = {
   title: string
