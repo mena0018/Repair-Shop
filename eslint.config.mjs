@@ -75,8 +75,8 @@ const nextConfig = [
       {
         files: [
           "./middleware.ts",
-          "prisma/**/*.{ts,tsx}",
           "**/*config.{js,mjs,cjs,ts,mts,cts}",
+          "src/lib/**/*.{ts,tsx}",
           "src/**/{page,layout,template,loading,error,not-found,global-error}.tsx"
         ],
         rules: {
