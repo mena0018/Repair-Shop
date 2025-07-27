@@ -18,14 +18,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/services/*": ["./src/services/*"],
-      "@/features/*": ["./src/features/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/generated/*": ["./src/generated/*"]
+      "@/*": ["./src/*"]
     },
     "target": "ES2017"
   },

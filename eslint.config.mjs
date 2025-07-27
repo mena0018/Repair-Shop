@@ -75,9 +75,9 @@ const nextConfig = [
       {
         files: [
           "./middleware.ts",
-          "prisma/**/*.{ts,tsx}",
           "**/*config.{js,mjs,cjs,ts,mts,cts}",
-          "app/**/{page,layout,template,loading,error,not-found,global-error}.tsx"
+          "src/libs/**/*.{ts,tsx}",
+          "src/**/{page,layout,template,loading,error,not-found,global-error}.tsx"
         ],
         rules: {
           "import/no-default-export": "off"
