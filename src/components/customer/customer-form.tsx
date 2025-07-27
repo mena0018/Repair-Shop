@@ -4,14 +4,16 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs"
 
-import { InputWithLabel } from "@/components/rhf/input-with-label"
-import { SelectWithLabel } from "@/components/rhf/select-with-label"
-import { SwitchWithLabel } from "@/components/rhf/switch-with-label"
-import { TextAreaWithLabel } from "@/components/rhf/textarea-with-label"
+import {
+  InputWithLabel,
+  SelectWithLabel,
+  SwitchWithLabel,
+  TextAreaWithLabel
+} from "@/components/form"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
-import { CustomerFields, CustomerSchema, states } from "@/features/customer"
 import { Customer } from "@/generated/prisma"
+import { CustomerFields, CustomerSchema, states } from "@/modules/customer"
 
 type Props = {
   customer?: Customer

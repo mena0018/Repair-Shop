@@ -2,8 +2,9 @@ import { init as initKindeManagementApi, Users } from "@kinde/management-api-js"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 
 import { ErrorDisplay } from "@/components/error-display"
-import { getCustomer } from "@/features/customer"
-import { getTicket, TicketForm } from "@/features/ticket"
+import { TicketForm } from "@/components/ticket"
+import { getCustomer } from "@/modules/customer"
+import { getTicket } from "@/modules/ticket"
 
 type SearchParams = {
   searchParams: Promise<Record<string, string | undefined>>

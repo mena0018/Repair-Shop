@@ -3,20 +3,17 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { InputWithLabel } from "@/components/rhf/input-with-label"
-import { SelectWithLabel } from "@/components/rhf/select-with-label"
-import { SwitchWithLabel } from "@/components/rhf/switch-with-label"
-import { TextAreaWithLabel } from "@/components/rhf/textarea-with-label"
+import { CustomerInfos } from "@/components/customer"
+import {
+  InputWithLabel,
+  SelectWithLabel,
+  SwitchWithLabel,
+  TextAreaWithLabel
+} from "@/components/form"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
-import { CustomerInfos } from "@/features/customer"
-import {
-  DEFAULT_TECH_ID,
-  DEFAULT_TECH_TICKET,
-  TicketFields,
-  TicketSchema
-} from "@/features/ticket/types/ticket.schema"
 import { Customer, Ticket } from "@/generated/prisma"
+import { DEFAULT_TECH_ID, DEFAULT_TECH_TICKET, TicketFields, TicketSchema } from "@/modules/ticket"
 
 type Props = {
   ticket?: Ticket

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
 
-import { Header } from "@/components/header"
+import { Header } from "@/components/layout"
 
 export default function ShopLayout({ children }: Readonly<PropsWithChildren>) {
   return (

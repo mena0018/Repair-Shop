@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react"
 import type { Metadata } from "next"
 import { Lato } from "next/font/google"
 
-import { Providers } from "@/components/providers"
+import { Providers } from "@/components/layout"
 import { baseMetadata } from "@/libs/site-config"
 import { cn } from "@/libs/utils"
 
